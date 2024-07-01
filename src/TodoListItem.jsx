@@ -17,13 +17,13 @@ const TodoListItemBlock = styled.li`
   }
 `
 
-const TodoListItem = ({todo}) => {
+const TodoListItem = ({todo, onToggle}) => {
+  const {id, checked, text } = todo
   return (
     <TodoListItemBlock>
-      <div className="list" onClick={ onToggle }>
-        <MdCheckBoxOutlineBlank />
-        {/* <MdCheckBox className="red" /> */}
-        <div style={{paddingLeft:'10px'}}>{todo}</div>
+      <div className="list" onClick={()=>onToggle(id)}>
+        { checked ? <MdCheckBox className="red" /> : <MdCheckBoxOutlineBlank /> }
+        <div style={{paddingLeft:'10px'}}>{id}. {text}</div>
       </div>
       <div className="remove">
         <MdRemoveCircleOutline />

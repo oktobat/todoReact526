@@ -7,8 +7,6 @@ const TodoTemplateBlock = styled.div`
   .content {
     border : 1px solid #000;
     background : #fff;
-    min-height : 300px; 
-    overflow-y : auto; 
   }
 `
 

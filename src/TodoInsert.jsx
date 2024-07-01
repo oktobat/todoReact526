@@ -17,7 +17,7 @@ const TodoInsertBlock = styled.div`
   }
 `
 
-const TodoInsert = () => {
+const TodoInsert = ({onInsert}) => {
   // 컴포넌트 내부에서 변경되는 데이터 관리 : state 변수
   const [text, setText] = useState("")
 
@@ -28,6 +28,7 @@ const TodoInsert = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    onInsert(text)
   }
 
   return (

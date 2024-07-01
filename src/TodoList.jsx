@@ -1,10 +1,19 @@
 import React from 'react';
+import styled from 'styled-components'
 
-const TodoList = () => {
+const TodoListBlock = styled.ul`
+  min-height:320px;
+  max-height:513px;
+  overflow-y:auto;
+`
+
+const TodoList = ({todos}) => {
   return (
-    <div>
-      
-    </div>
+    <TodoListBlock>
+      {
+        todos.map((todo)=><li>{todo}</li>)
+      }
+    </TodoListBlock>
   );
 };
 

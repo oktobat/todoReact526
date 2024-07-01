@@ -9,6 +9,7 @@ const TodoListItemBlock = styled.li`
     display:flex; align-items:center; 
     flex:1; 
     .red { color:#f00 }
+    .finish { text-decoration:line-through; color:#f00 }
   }
   .remove {
     color:#ff6b6b;
@@ -23,7 +24,7 @@ const TodoListItem = ({todo, onToggle}) => {
     <TodoListItemBlock>
       <div className="list" onClick={()=>onToggle(id)}>
         { checked ? <MdCheckBox className="red" /> : <MdCheckBoxOutlineBlank /> }
-        <div style={{paddingLeft:'10px'}}>{id}. {text}</div>
+        <div style={{paddingLeft:'10px'}} className={ checked && "finish"}>{id}. {text}</div>
       </div>
       <div className="remove">
         <MdRemoveCircleOutline />

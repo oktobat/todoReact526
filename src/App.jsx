@@ -9,8 +9,8 @@ const App = () => {
   const [todos, setTodos] = useState([])
 
   const onInsert = (todo)=>{
-    // setTodos(todos.concat(todo))
-    setTodos([...todos, todo])
+    setTodos(todos.concat(todo))
+    // setTodos([...todos, todo])
   }
 
   return (

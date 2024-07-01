@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components'
 import { FaPlus } from "react-icons/fa6";
 
@@ -20,21 +20,24 @@ const TodoInsertBlock = styled.div`
 const TodoInsert = ({onInsert}) => {
   // 컴포넌트 내부에서 변경되는 데이터 관리 : state 변수
   const [text, setText] = useState("")
-
   const onChange = (e)=>{
     console.log(e.target.value)
     setText(e.target.value)
   }
 
+  const inputRef = useRef()
+
   const onSubmit = (e) => {
     e.preventDefault()
     onInsert(text)
+    setText("")
+    inputRef.current.focus()
   }
 
   return (
     <TodoInsertBlock>
       <form onSubmit={ onSubmit }>
-        <input type="text" placeholder="할 일을 입력하세요." value={text} onChange={ onChange } />
+        <input type="text" placeholder="할 일을 입력하세요." value={text} onChange={ onChange } ref={inputRef} />
         <button type="submit"><FaPlus /></button>
       </form>
     </TodoInsertBlock>

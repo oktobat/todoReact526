@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import TodoListItem from '@/TodoListItem'
 
 const TodoListBlock = styled.ul`
   min-height:320px;
@@ -11,7 +12,7 @@ const TodoList = ({todos}) => {
   return (
     <TodoListBlock>
       {
-        todos.map((todo)=><li>{todo}</li>)
+        todos.map((todo, index)=><TodoListItem key={index} todo={todo} />)
       }
     </TodoListBlock>
   );

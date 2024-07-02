@@ -21,7 +21,7 @@ const TodoInsert = ({onInsert}) => {
   // 컴포넌트 내부에서 변경되는 데이터 관리 : state 변수
   const [text, setText] = useState("")
   const onChange = (e)=>{
-    console.log(e.target.value)
+    console.log(e)
     setText(e.target.value)
   }
 
@@ -29,6 +29,11 @@ const TodoInsert = ({onInsert}) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    if (!text){
+      alert("일정을 입력하세요.")
+      inputRef.current.focus()
+      return
+    }
     onInsert(text)
     setText("")
     inputRef.current.focus()
